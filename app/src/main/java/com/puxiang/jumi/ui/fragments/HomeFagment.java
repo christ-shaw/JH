@@ -63,18 +63,18 @@ public class HomeFagment extends Fragment {
 
        // BannerModel bannerModel = new BannerModel();
         List<String> imgs = new ArrayList<String>();
-        imgs.add("http://120.25.164.72/resources/index_banner.png");
-        imgs.add("http://120.25.164.72/resources/index_banner.png");
-        imgs.add("http://120.25.164.72/resources/index_banner.png");
-        imgs.add("http://120.25.164.72/resources/index_banner.png");
-        imgs.add("http://120.25.164.72/resources/index_banner.png");
+        imgs.add("http://i0.sinaimg.cn/gm/2011/0212/U5213P115DT20110212113645.jpg");
+        imgs.add("http://img3.fengniao.com/forum/attachpics/803/102/32100386_1024.jpg");
+        imgs.add("http://images.17173.com/2014/news/2014/05/13/hy0513jh03s.jpg");
+        imgs.add("http://img1.91.com/uploads/allimg/160422/703-160422111500.jpg");
+        imgs.add("@mipmap/title1.jpg");
 
         List<String> tips = new ArrayList<String>();
-        tips.add("梦想家居");
-        tips.add("梦想家居");
-        tips.add("梦想家居");
-        tips.add("梦想家居");
-        tips.add("梦想家居");
+        tips.add("江湖秘籍");
+        tips.add("昭告天下");
+        tips.add("生财有道");
+        tips.add("人在江湖");
+        tips.add("海纳百川");
 
 //        mEngine.fiveItem().enqueue(new Callback<BannerModel>() {
 //            @Override
@@ -123,54 +123,44 @@ public class HomeFagment extends Fragment {
         final List<HashMap<String,Object>> list = new ArrayList<HashMap<String,Object>>();
 
         HashMap<String,Object> map = new HashMap<String,Object>();
-        map.put("name", "装修及家具");
+        map.put("name", "江湖救急");
         map.put("icon", R.mipmap.menu1);
         list.add(map);
 
         HashMap<String,Object> map2 = new HashMap<String,Object>();
-        map2.put("name", "办公文仪");
+        map2.put("name", "资源共享");
         map2.put("icon", R.mipmap.menu2);
         list.add(map2);
 
         HashMap<String,Object> map3 = new HashMap<String,Object>();
-        map3.put("name", "快递服务");
+        map3.put("name", "兼职");
         map3.put("icon", R.mipmap.menu3);
         list.add(map3);
 
         HashMap<String,Object> map4 = new HashMap<String,Object>();
-        map4.put("name", "机票服务");
+        map4.put("name", "培训学习");
         map4.put("icon", R.mipmap.menu4);
         list.add(map4);
 
         HashMap<String,Object> map5 = new HashMap<String,Object>();
-        map5.put("name", "财税服务");
+        map5.put("name", "爱拼团");
         map5.put("icon", R.mipmap.menu5);
         list.add(map5);
 
         HashMap<String,Object> map6 = new HashMap<String,Object>();
-        map6.put("name", "律师服务");
+        map6.put("name", "交友活动");
         map6.put("icon", R.mipmap.menu6);
         list.add(map6);
 
-        HashMap<String,Object> map7 = new HashMap<String,Object>();
-        map7.put("name", "资产评估");
-        map7.put("icon", R.mipmap.menu7);
-        list.add(map7);
-
         HashMap<String,Object> map8 = new HashMap<String,Object>();
-        map8.put("name", "洗衣服务");
+        map8.put("name", "二手");
         map8.put("icon", R.mipmap.menu8);
         list.add(map8);
 
         HashMap<String,Object> map9 = new HashMap<String,Object>();
-        map9.put("name","洗衣服务");
+        map9.put("name","求职面经");
         map9.put("icon", R.mipmap.menu8);
         list.add(map9);
-
-        HashMap<String,Object> map10 = new HashMap<String,Object>();
-        map10.put("name","其他");
-        map10.put("icon",R.mipmap.menu8);
-        list.add(map10);
 
         final int PageCount = 2;//(int)Math.ceil(list.size()/APP_PAGE_SIZE);
         array = new ArrayList<GridView>();

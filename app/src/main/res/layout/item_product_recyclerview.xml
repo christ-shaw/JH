@@ -38,7 +38,7 @@
                 android:ellipsize="end"
                 android:textColor="@color/primary_text"
                 android:textSize="@dimen/text_size_18"
-                tools:text="欧美办公室桌椅套餐" />
+                tools:text="救急任务1" />
 
             <LinearLayout
                 android:id="@+id/orderPriceLayout"

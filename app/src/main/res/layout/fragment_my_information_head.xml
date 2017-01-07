@@ -81,7 +81,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
-                    android:text="巨米红包" />
+                    android:text="江湖红包" />
             </LinearLayout>
 
 
@@ -96,7 +96,7 @@
 
                 <TextView
                     style="@style/user_formation_text"
-                    android:text="巨米代金券"/>
+                    android:text="江湖代金券"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

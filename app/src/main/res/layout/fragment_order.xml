@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:background="@color/awesome_orange"
         android:minHeight="?attr/actionBarSize"
-        android:titleTextColor="@color/white">
+        android:titleTextColor="@color/white"><!--android:titleTextColor="@color/white"-->
 
         <TextView
             android:layout_width="match_parent"

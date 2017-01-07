@@ -110,32 +110,32 @@ public class OrderFagment extends Fragment implements ObservableScrollViewCallba
 
         OrderListItem orderListItem1 = new OrderListItem();
         orderListItem1.setContent("测试");
-        orderListItem1.setTitle("欧美办公室桌椅套餐1");
-        orderListItem1.setPrice("￥38");
+        orderListItem1.setTitle("救急任务1");
+        orderListItem1.setPrice("￥1");
         orderListItem1.setStatus("1");
         orderListItem1.setDate("2015-10-26 10:33");
         mOrderListItems.add(orderListItem1);
 
         OrderListItem orderListItem2 = new OrderListItem();
         orderListItem2.setContent("测试");
-        orderListItem2.setTitle("欧美办公室桌椅套餐2");
-        orderListItem2.setPrice("￥58");
+        orderListItem2.setTitle("救急任务2");
+        orderListItem2.setPrice("￥2");
         orderListItem2.setStatus("2");
         orderListItem2.setDate("2015-10-20 14:29");
         mOrderListItems.add(orderListItem2);
 
         OrderListItem orderListItem3 = new OrderListItem();
         orderListItem3.setContent("测试");
-        orderListItem3.setTitle("欧美办公室桌椅套餐1");
-        orderListItem3.setPrice("￥48");
+        orderListItem3.setTitle("救急任务3");
+        orderListItem3.setPrice("￥3");
         orderListItem3.setStatus("2");
         orderListItem3.setDate("2015-10-16 19:54");
         mOrderListItems.add(orderListItem3);
 
         OrderListItem orderListItem4 = new OrderListItem();
         orderListItem4.setContent("测试");
-        orderListItem4.setTitle("欧美办公室桌椅套餐1");
-        orderListItem4.setPrice("￥48");
+        orderListItem4.setTitle("救急任务4");
+        orderListItem4.setPrice("￥4");
         orderListItem4.setStatus("2");
         orderListItem4.setDate("2015-10-16 19:54");
         mOrderListItems.add(orderListItem4);
