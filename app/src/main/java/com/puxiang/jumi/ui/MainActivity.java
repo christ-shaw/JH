@@ -1,5 +1,6 @@
 package com.puxiang.jumi.ui;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -61,6 +62,9 @@ public class MainActivity extends BaseActivity {
 
 
         initView();
+
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
 
     }
 
