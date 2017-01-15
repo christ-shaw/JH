@@ -23,7 +23,7 @@ public class SignupActivity extends AppCompatActivity {
     EditText _nameText;
     @Bind(R.id.input_address)
     EditText _addressText;
-    @Bind(R.id.input_email)
+    @Bind(R.id.input_username)
     EditText _emailText;
     @Bind(R.id.input_mobile)
     EditText _mobileText;

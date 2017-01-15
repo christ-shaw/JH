@@ -20,7 +20,7 @@ public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
     private static final int REQUEST_SIGNUP = 0;
 
-    @Bind(R.id.input_email)
+    @Bind(R.id.input_username)
     EditText _emailText;
     @Bind(R.id.input_password)
     EditText _passwordText;
@@ -28,6 +28,9 @@ public class LoginActivity extends AppCompatActivity {
     Button _loginButton;
     @Bind(R.id.link_signup)
     TextView _signupLink;
+
+    @Bind(R.id.btn_guest)
+    Button _logInGuest;
     
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -40,6 +43,13 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 login();
+            }
+        });
+
+        _logInGuest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
             }
         });
 
@@ -119,6 +129,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public boolean validate() {
+
+
         boolean valid = true;
 
         String email = _emailText.getText().toString();
@@ -138,6 +150,6 @@ public class LoginActivity extends AppCompatActivity {
             _passwordText.setError(null);
         }
 
-        return valid;
+        return true;
     }
 }

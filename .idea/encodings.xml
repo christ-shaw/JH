@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/puxiang/jumi/ui/adapter/Adapter_GridView.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/puxiang/jumi/view/MyGridView.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/arrow_expend_right.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/completed.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/evaluated.jpg" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/ongoing.jpg" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/ongoing.jpg" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/portait.jpg" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/portrait1.jpg" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/portrait2.jpg" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/portrait3.jpg" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/portrait4.jpeg" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/published.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/user_3.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/user_4.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/user_5.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/user_6.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_user_profile.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/layout/top_menu_txt.xml" charset="GBK" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>
