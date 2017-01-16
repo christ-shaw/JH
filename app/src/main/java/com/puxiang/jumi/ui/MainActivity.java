@@ -1,5 +1,6 @@
 package com.puxiang.jumi.ui;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -39,18 +40,18 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
 
         //去掉Activity上面的状态栏
-       // Window window = getWindow();
-       // window.setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-       // window.setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION, WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+        // Window window = getWindow();
+        // window.setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        // window.setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION, WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS
                     | WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
             window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                 //   | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                    //   | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
                     | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
 
-           // window.setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            // window.setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
 
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.setStatusBarColor(Color.TRANSPARENT);
@@ -61,6 +62,9 @@ public class MainActivity extends BaseActivity {
 
 
         initView();
+
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
 
     }
 
@@ -127,8 +131,7 @@ public class MainActivity extends BaseActivity {
                     fragment = new OrderFagment();
                     break;
                 case 2://我
-                    fragment = new MeFagment();
-                  //  fragment = new YSHomeFagment();
+                    fragment = new MeFagment ();
                     break;
                 default:
                     new HomeFagment();
