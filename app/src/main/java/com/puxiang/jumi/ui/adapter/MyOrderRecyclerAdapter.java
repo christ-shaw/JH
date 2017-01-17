@@ -112,7 +112,7 @@ public class MyOrderRecyclerAdapter extends RecyclerView.Adapter<MyOrderRecycler
             status = "未完成";
             viewHolder.mOrderStatus.setTextColor(mContext.getResources().getColor(R.color.awesome_orange));
         }else{
-            status = "订单完成";
+            status = "任务完成";
             viewHolder.mOrderStatus.setTextColor(mContext.getResources().getColor(R.color.secondary_text));
         }
         viewHolder.mOrderStatus.setText(status);

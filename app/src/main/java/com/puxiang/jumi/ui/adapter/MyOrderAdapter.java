@@ -39,10 +39,11 @@ public class MyOrderAdapter extends AutoRVAdapter {
             status = "未完成";
             holder.getTextView(R.id.orderStatus).setTextColor(context.getResources().getColor(R.color.awesome_orange));
         }else{
-            status = "订单完成";
+            status = "任务完成";
             holder.getTextView(R.id.orderStatus).setTextColor(context.getResources().getColor(R.color.awesome_gray));
         }
         holder.getTextView(R.id.orderStatus).setText(status);
+        holder.getTextView(R.id.info).setText(item.getContent());
 
 
         holder.getTextView(R.id.orderPrice).setText(item.getPrice());
