@@ -252,7 +252,7 @@
         <LinearLayout
             android:id="@+id/my_order_layout"
             android:layout_width="match_parent"
-            android:layout_height="130dp"
+            android:layout_height="157dp"
             android:gravity="center"
             android:orientation="vertical">
             <com.github.ksoichiro.android.observablescrollview.ObservableRecyclerView

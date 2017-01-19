@@ -19,6 +19,7 @@ import com.puxiang.jumi.base.App;
 import com.puxiang.jumi.ui.fragments.HomeFagment;
 import com.puxiang.jumi.ui.fragments.MeFagment;
 import com.puxiang.jumi.ui.fragments.OrderFagment;
+import com.puxiang.jumi.ui.fragments.PicFagment;
 import com.rogers.kit.base.BaseActivity;
 
 /**
@@ -35,6 +36,7 @@ public class MainActivity extends BaseActivity {
     private RadioButton mHomePublishRb;
     private RadioButton mHomeInfoRb;
     private RadioButton mHomeMeRb;
+    private static boolean isFirst = true;
 
     static final int NUM_ITEMS = 5;//一共6个fragment
 
@@ -66,9 +68,9 @@ public class MainActivity extends BaseActivity {
 
 
         initView();
-
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
+        isFirst = false;
 
     }
 
@@ -135,20 +137,30 @@ public class MainActivity extends BaseActivity {
         @Override
         public Fragment getItem(int i) {
             Fragment fragment = null;
+            Bundle bundle = new Bundle();
             switch (i) {
                 case 0://首页
                     fragment = new HomeFagment();
                     break;
                 case 1://发现
                     fragment = new OrderFagment();
+//                    Intent intent = new Intent(MainActivity.this, ImageActivity.class);
+//                    startActivity(intent);
+
+                    bundle.putInt("select",1);
+                    fragment.setArguments(bundle);
                     break;
                 case 2://发布
-                    Toast.makeText(App.getInstance(), "发布页面建设中...", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(App.getInstance(), "发布页面建设中...", Toast.LENGTH_SHORT).show();
                     fragment = new HomeFagment();
+                    bundle.putInt("select",2);
+                    fragment.setArguments(bundle);
                     break;
                 case 3://消息
-                    Toast.makeText(App.getInstance(), "消息页面建设中...", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(App.getInstance(), "消息页面建设中...", Toast.LENGTH_SHORT).show();
                     fragment = new HomeFagment();
+                    bundle.putInt("select",3);
+                    fragment.setArguments(bundle);
                     break;
                 case 4://我
                     fragment = new MeFagment();
