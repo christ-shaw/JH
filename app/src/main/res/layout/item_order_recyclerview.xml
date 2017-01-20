@@ -22,38 +22,17 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <TextView
-                    android:id="@+id/titleTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_margin="@dimen/space_10"
-                    android:ellipsize="end"
-                    android:textColor="@color/primary_text"
-                    android:textSize="@dimen/text_size_16"
-                    tools:text="这是标题2" />
 
-                <TextView
-                    android:id="@+id/orderStatus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_margin="@dimen/space_10"
-                    android:ellipsize="end"
-                    android:textColor="@color/awesome_orange"
-                    android:textSize="@dimen/text_size_16"
-                    tools:text="未完成" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dip"
+
+                    android:layout_marginLeft="@dimen/space_8"
+                    android:layout_marginRight="@dimen/space_8"
+                    android:background="@color/divider_color" /> <!--android:layout_alignTop="@+id/dateTextView"-->
 
             </RelativeLayout>
 
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0.5dip"
-                android:layout_alignTop="@+id/dateTextView"
-                android:layout_marginLeft="@dimen/space_8"
-                android:layout_marginRight="@dimen/space_8"
-                android:background="@color/divider_color" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -63,33 +42,79 @@
                     android:id="@+id/titleImageView"
                     android:layout_width="100dp"
                     android:layout_height="match_parent"
-                    android:layout_margin="@dimen/space_5"
                     android:scaleType="fitCenter"
-                    tools:src="@mipmap/index_img" />
+                    tools:src="@mipmap/index_img"
+                    android:layout_marginLeft="@dimen/space_5"
+                    android:layout_marginRight="@dimen/space_5"
+                    android:layout_marginBottom="@dimen/space_5"
+                    android:layout_below="@+id/orderPrice" />
 
                 <TextView
                     android:id="@+id/orderPrice"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/space_8"
-                    android:layout_toEndOf="@+id/titleImageView"
                     android:layout_toRightOf="@+id/titleImageView"
                     android:ellipsize="end"
                     android:textColor="@color/awesome_orange"
                     android:textSize="@dimen/text_size_18"
-                    tools:text="这是标题" />
+                    tools:text="这是标题"
+                    android:layout_marginLeft="@dimen/space_8"
+                    android:layout_marginBottom="@dimen/space_8"
+                    android:layout_alignParentTop="true" />
+
+                <TextView
+                    android:id="@+id/info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:textColor="@color/primary_text"
+                    android:textSize="@dimen/text_size_14"
+                    tools:text="这是内容"
+                    android:layout_below="@+id/orderPrice"
+                    android:layout_alignLeft="@+id/orderPrice"
+                    android:layout_alignStart="@+id/orderPrice"
+                    android:layout_above="@+id/dateTextView" />
+
+                <TextView
+                    android:id="@+id/titleTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:textColor="@color/awesome_orange"
+                    android:textSize="@dimen/text_size_18"
+                    tools:text="这是标题2"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignRight="@+id/titleImageView"
+                    android:layout_alignEnd="@+id/titleImageView"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_above="@+id/titleImageView"
+                    android:textAlignment="center"
+                    android:layout_centerVertical="false" />
 
                 <TextView
                     android:id="@+id/dateTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/orderPrice"
-                    android:layout_margin="@dimen/space_8"
-                    android:layout_toRightOf="@+id/titleImageView"
                     android:ellipsize="end"
                     android:textColor="@color/secondary_text"
                     android:textSize="@dimen/text_size_14"
-                    tools:text="这是标题1" />
+                    tools:text="这是时间"
+                    android:layout_alignLeft="@+id/info"
+                    android:layout_alignStart="@+id/info"
+                    android:layout_alignBottom="@+id/titleImageView" />
+
+                <TextView
+                    android:id="@+id/orderStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:textColor="@color/awesome_orange"
+                    android:textSize="@dimen/text_size_16"
+                    tools:text="未完成"
+                    android:layout_alignTop="@+id/orderPrice"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />
 
             </RelativeLayout>
 

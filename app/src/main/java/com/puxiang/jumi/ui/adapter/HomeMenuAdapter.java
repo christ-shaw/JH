@@ -5,6 +5,7 @@ package com.puxiang.jumi.ui.adapter;
  */
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.puxiang.jumi.R;
+import com.puxiang.jumi.ui.ProductListActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -77,7 +79,13 @@ public class HomeMenuAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
-                Toast.makeText(mContext, appInfo.get("name")+"建设中",Toast.LENGTH_SHORT).show();
+                if(!appInfo.get("name") .equals("江湖救急")){
+                    Toast.makeText(mContext, appInfo.get("name")+"建设中",Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Intent intent = new Intent(mContext, ProductListActivity.class);
+                    mContext.startActivity(intent);
+                }
             }
         });
         return convertView;

@@ -1,22 +1,33 @@
 package com.puxiang.jumi.ui.fragments;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.github.ksoichiro.android.observablescrollview.ObservableRecyclerView;
+import com.github.ksoichiro.android.observablescrollview.ObservableScrollViewCallbacks;
+import com.github.ksoichiro.android.observablescrollview.ScrollState;
 import com.puxiang.jumi.R;
 import com.puxiang.jumi.base.App;
 import com.puxiang.jumi.bean.Engine;
+import com.puxiang.jumi.bean.OrderListItem;
 import com.puxiang.jumi.ui.ProductListActivity;
 import com.puxiang.jumi.ui.adapter.HomeMenuAdapter;
 import com.puxiang.jumi.ui.adapter.HomeViewPagerAdapter;
+import com.puxiang.jumi.ui.adapter.MyOrderAdapter;
+import com.puxiang.jumi.ui.adapter.ProductRecyclerAdapter;
 import com.viewpagerindicator.LinePageIndicator;
 
 import java.util.ArrayList;
@@ -24,12 +35,15 @@ import java.util.HashMap;
 import java.util.List;
 
 import cn.bingoogolapple.bgabanner.BGABanner;
+import in.srain.cube.views.ptr.PtrFrameLayout;
+import in.srain.cube.views.ptr.PtrHandler;
+import in.srain.cube.views.ptr.header.MaterialHeader;
 
 
 /**
  * Created by nick on 15/10/21.
  */
-public class HomeFagment extends Fragment {
+public class HomeFagment extends Fragment{
 
     private BGABanner mDefaultBanner;
     private List<View> mDefaultViews;
@@ -38,8 +52,15 @@ public class HomeFagment extends Fragment {
     private Engine mEngine;
     private static int APP_PAGE_SIZE = 8;
     private ArrayList<GridView> array;
+    private Toolbar mToolbar;
 
-
+    private PtrFrameLayout frame;
+    private MaterialHeader header;
+    private ObservableRecyclerView mRecyclerView;
+    private MyOrderAdapter mAdapter;
+    private ObservableRecyclerView.LayoutManager mLayoutManager;
+    private List<OrderListItem> mOrderListItems = new ArrayList<OrderListItem>();
+    private int mCurrentPage = 0;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         mEngine = App.getInstance().getEngine();
@@ -63,11 +84,11 @@ public class HomeFagment extends Fragment {
 
        // BannerModel bannerModel = new BannerModel();
         List<String> imgs = new ArrayList<String>();
-        imgs.add("http://i0.sinaimg.cn/gm/2011/0212/U5213P115DT20110212113645.jpg");
-        imgs.add("http://img3.fengniao.com/forum/attachpics/803/102/32100386_1024.jpg");
-        imgs.add("http://images.17173.com/2014/news/2014/05/13/hy0513jh03s.jpg");
-        imgs.add("http://img1.91.com/uploads/allimg/160422/703-160422111500.jpg");
-        imgs.add("@mipmap/title1.jpg");
+        imgs.add("res://" + this.getActivity().getPackageName() + "/" + R.mipmap.title1);
+        imgs.add("res://" + this.getActivity().getPackageName() + "/" + R.mipmap.title2);
+        imgs.add("res://" + this.getActivity().getPackageName() + "/" + R.mipmap.title3);
+        imgs.add("res://" + this.getActivity().getPackageName() + "/" + R.mipmap.title4);
+        imgs.add("res://" + this.getActivity().getPackageName() + "/" + R.mipmap.title5);
 
         List<String> tips = new ArrayList<String>();
         tips.add("江湖秘籍");
@@ -169,15 +190,47 @@ public class HomeFagment extends Fragment {
             appPage.setAdapter(new HomeMenuAdapter(getActivity(), list, i));
             appPage.setNumColumns(4);
             appPage.setVerticalSpacing(30);
+            appPage.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position,
+                                        long id) {
+                    //Toast.makeText(App.getInstance(), "点击了第" + (position + 1) + "页", Toast.LENGTH_SHORT).show();
+                }
+            });
             array.add(appPage);
         }
 
         viewPager.setAdapter(new HomeViewPagerAdapter(getActivity(),array));
         mIndicator = (LinePageIndicator)view.findViewById(R.id.indicator);
         mIndicator.setViewPager(viewPager);
+
+        setBottomList(view);
     }
 
+    private void setBottomList(View view) {
+        Activity parentActivity = getActivity();
 
+
+        mRecyclerView = (ObservableRecyclerView) view.findViewById(R.id.my_order_recycler_view_home);
+        mLayoutManager = new LinearLayoutManager(parentActivity);
+
+        //mRecyclerView.setScrollViewCallbacks((ObservableScrollViewCallbacks) parentActivity);
+
+        //mRecyclerView.setLayoutManager(mLayoutManager);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        //mRecyclerView.setScrollViewCallbacks(this);
+        // mRecyclerView.setItemAnimator(newDefaultItemAnimator());
+
+
+        //设置adapter
+        mAdapter = new MyOrderAdapter(getActivity(),mOrderListItems);
+        mRecyclerView.setAdapter(mAdapter);
+
+
+        //得到数据
+        OrderFagment.getNewsList(this.getActivity(), mOrderListItems, mAdapter, mRecyclerView, 0, false);
+
+    }
 
     private List<View> getViews(int count) {
         List<View> views = new ArrayList<>();
@@ -195,6 +248,7 @@ public class HomeFagment extends Fragment {
             this.getView().setVisibility(menuVisibile ? View.VISIBLE : View.GONE);
         }
     }
+
 
 }
 

@@ -10,7 +10,9 @@ import com.github.ksoichiro.android.observablescrollview.ObservableScrollViewCal
 import com.github.ksoichiro.android.observablescrollview.ScrollState;
 import com.puxiang.jumi.R;
 import com.puxiang.jumi.bean.OrderListItem;
+import com.puxiang.jumi.ui.adapter.MyOrderAdapter;
 import com.puxiang.jumi.ui.adapter.ProductRecyclerAdapter;
+import com.puxiang.jumi.ui.fragments.OrderFagment;
 import com.rogers.kit.base.BaseActivity;
 
 import java.util.ArrayList;
@@ -30,7 +32,7 @@ public class ProductListActivity extends BaseActivity implements ObservableScrol
     private PtrFrameLayout frame;
     private MaterialHeader header;
     private ObservableRecyclerView mRecyclerView;
-    private ProductRecyclerAdapter mAdapter;
+    private MyOrderAdapter mAdapter;
     private ObservableRecyclerView.LayoutManager mLayoutManager;
     private List<OrderListItem> mOrderListItems = new ArrayList<OrderListItem>();
     private int mCurrentPage = 0;
@@ -50,7 +52,7 @@ public class ProductListActivity extends BaseActivity implements ObservableScrol
             //toolbar.setNavigationIcon(R.mipmap.ic_back);
             setSupportActionBar(toolbar);
         }
-        getSupportActionBar().setTitle("产品列表");
+        getSupportActionBar().setTitle("救急任务");
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -83,7 +85,7 @@ public class ProductListActivity extends BaseActivity implements ObservableScrol
 
             @Override
             public void onRefreshBegin(final PtrFrameLayout ptrFrameLayout) {
-                getNewsList(mAdapter, mCurrentPage, false);
+                OrderFagment.getNewsList(ProductListActivity.this, mOrderListItems, mAdapter, mRecyclerView, mCurrentPage, false);
                 ptrFrameLayout.refreshComplete();
             }
         });
@@ -96,63 +98,63 @@ public class ProductListActivity extends BaseActivity implements ObservableScrol
 
 
         //得到数据
-        getNewsList(mAdapter, 0, false);
+        OrderFagment.getNewsList(this, mOrderListItems, mAdapter, mRecyclerView, 0, false);
 
     }
 
 
-    /**
-     * 获取某一页的数据
-     * @param adapter
-     * @param currentPage 页码
-     * @param forced      是否强制刷新
-     */
-    private void getNewsList(ProductRecyclerAdapter adapter,int currentPage,boolean forced) {
-
-        OrderListItem orderListItem1 = new OrderListItem();
-        orderListItem1.setContent("原价￥988");
-        orderListItem1.setTitle("欧美办公室桌椅套餐1");
-        orderListItem1.setPrice("￥388");
-        orderListItem1.setStatus("月销量2790单");
-        mOrderListItems.add(orderListItem1);
-
-        OrderListItem orderListItem2 = new OrderListItem();
-        orderListItem2.setContent("原价￥1288");
-        orderListItem2.setTitle("欧美办公室桌椅套餐2");
-        orderListItem2.setPrice("￥588");
-        orderListItem2.setStatus("月销量6832单");
-        mOrderListItems.add(orderListItem2);
-
-        OrderListItem orderListItem3 = new OrderListItem();
-        orderListItem3.setContent("原价￥1088");
-        orderListItem3.setTitle("欧美办公室桌椅套餐3");
-        orderListItem3.setPrice("￥488");
-        orderListItem3.setStatus("月销量3632单");
-        mOrderListItems.add(orderListItem3);
-
-        OrderListItem orderListItem4 = new OrderListItem();
-        orderListItem4.setContent("原价￥1588");
-        orderListItem4.setTitle("欧美办公室桌椅套餐");
-        orderListItem4.setPrice("￥688");
-        orderListItem4.setStatus("月销量1082单");
-        mOrderListItems.add(orderListItem4);
-
-        int total = mOrderListItems.size();
-        //不强制刷新时，如果此页已存在则直接从内存中加载
-        if (!forced && total>0 ){
-            //mAdapter.addNews(mOrderListItems);
-            mAdapter = new ProductRecyclerAdapter(this,mOrderListItems);
-            mRecyclerView.setAdapter(mAdapter);
-            mAdapter.notifyDataSetChanged();
-            return;
-        }
-
-        if(forced && mOrderListItems.size()>0){
-            mOrderListItems.clear();
-        }
-//        LoadNewsListTask loadDataTask = new LoadNewsListTask(adapter,mNewsType,forced);
-//        loadDataTask.execute(currentPage);
-    }
+//    /**
+//     * 获取某一页的数据
+//     * @param adapter
+//     * @param currentPage 页码
+//     * @param forced      是否强制刷新
+//     */
+//    private void getNewsList(ProductRecyclerAdapter adapter,int currentPage,boolean forced) {
+//
+//        OrderListItem orderListItem1 = new OrderListItem();
+//        orderListItem1.setContent("原价￥988");
+//        orderListItem1.setTitle("欧美办公室桌椅套餐1");
+//        orderListItem1.setPrice("￥388");
+//        orderListItem1.setStatus("月销量2790单");
+//        mOrderListItems.add(orderListItem1);
+//
+//        OrderListItem orderListItem2 = new OrderListItem();
+//        orderListItem2.setContent("原价￥1288");
+//        orderListItem2.setTitle("欧美办公室桌椅套餐2");
+//        orderListItem2.setPrice("￥588");
+//        orderListItem2.setStatus("月销量6832单");
+//        mOrderListItems.add(orderListItem2);
+//
+//        OrderListItem orderListItem3 = new OrderListItem();
+//        orderListItem3.setContent("原价￥1088");
+//        orderListItem3.setTitle("欧美办公室桌椅套餐3");
+//        orderListItem3.setPrice("￥488");
+//        orderListItem3.setStatus("月销量3632单");
+//        mOrderListItems.add(orderListItem3);
+//
+//        OrderListItem orderListItem4 = new OrderListItem();
+//        orderListItem4.setContent("原价￥1588");
+//        orderListItem4.setTitle("欧美办公室桌椅套餐");
+//        orderListItem4.setPrice("￥688");
+//        orderListItem4.setStatus("月销量1082单");
+//        mOrderListItems.add(orderListItem4);
+//
+//        int total = mOrderListItems.size();
+//        //不强制刷新时，如果此页已存在则直接从内存中加载
+//        if (!forced && total>0 ){
+//            //mAdapter.addNews(mOrderListItems);
+//            mAdapter = new ProductRecyclerAdapter(this,mOrderListItems);
+//            mRecyclerView.setAdapter(mAdapter);
+//            mAdapter.notifyDataSetChanged();
+//            return;
+//        }
+//
+//        if(forced && mOrderListItems.size()>0){
+//            mOrderListItems.clear();
+//        }
+////        LoadNewsListTask loadDataTask = new LoadNewsListTask(adapter,mNewsType,forced);
+////        loadDataTask.execute(currentPage);
+//    }
 
     @Override
     public void onDownMotionEvent() {

@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_10"
             android:gravity="center"
-            android:text="产品列表"
+            android:text="@string/help_task"
             android:visibility="gone"
             android:textColor="@color/white"
             android:textSize="@dimen/text_size_20" />
