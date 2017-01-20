@@ -24,13 +24,28 @@
 
 
        <RadioButton
-           android:id="@+id/radio_order"
+           android:id="@+id/radio_discover"
            style="@style/main_tab_bottom"
            android:checked="true"
            android:drawablePadding="4dp"
-           android:drawableTop="@drawable/bt_menu_order_select"
-           android:text="@string/order" />
+           android:drawableTop="@drawable/bt_menu_discover_select"
+           android:text="@string/discover" />
 
+       <RadioButton
+           android:id="@+id/radio_publish"
+           style="@style/main_tab_bottom"
+           android:checked="true"
+           android:drawablePadding="4dp"
+           android:drawableTop="@drawable/bt_menu_publish_select"
+           android:text="@string/publish" />
+
+       <RadioButton
+           android:id="@+id/radio_info"
+           style="@style/main_tab_bottom"
+           android:checked="true"
+           android:drawablePadding="4dp"
+           android:drawableTop="@drawable/bt_menu_info_select"
+           android:text="@string/info" />
 
        <RadioButton
            android:id="@+id/radio_me"

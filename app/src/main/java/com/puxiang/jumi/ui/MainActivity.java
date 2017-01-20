@@ -12,11 +12,14 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.puxiang.jumi.R;
+import com.puxiang.jumi.base.App;
 import com.puxiang.jumi.ui.fragments.HomeFagment;
 import com.puxiang.jumi.ui.fragments.MeFagment;
 import com.puxiang.jumi.ui.fragments.OrderFagment;
+import com.puxiang.jumi.ui.fragments.PicFagment;
 import com.rogers.kit.base.BaseActivity;
 
 /**
@@ -29,10 +32,13 @@ public class MainActivity extends BaseActivity {
     private FrameLayout mHomeContent;
     private RadioGroup mHomeRadioGroup;
     private RadioButton mHomeHomeRb;
-    private RadioButton mHomeOrderRb;
+    private RadioButton mHomeDiscoverRb;
+    private RadioButton mHomePublishRb;
+    private RadioButton mHomeInfoRb;
     private RadioButton mHomeMeRb;
+    private static boolean isFirst = true;
 
-    static final int NUM_ITEMS = 3;//一共四个fragment
+    static final int NUM_ITEMS = 5;//一共6个fragment
 
 
 
@@ -62,9 +68,9 @@ public class MainActivity extends BaseActivity {
 
 
         initView();
-
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
+        isFirst = false;
 
     }
 
@@ -73,7 +79,9 @@ public class MainActivity extends BaseActivity {
         mHomeContent = (FrameLayout) findViewById(R.id.content_frame); //tab上方的区域
         mHomeRadioGroup = (RadioGroup) findViewById(R.id.radiogroup);  //底部的四个tab
         mHomeHomeRb = (RadioButton) findViewById(R.id.radio_home);
-        mHomeOrderRb = (RadioButton) findViewById(R.id.radio_order);
+        mHomeDiscoverRb = (RadioButton) findViewById(R.id.radio_discover);
+        mHomePublishRb = (RadioButton) findViewById(R.id.radio_publish);
+        mHomeInfoRb = (RadioButton) findViewById(R.id.radio_info);
         mHomeMeRb = (RadioButton) findViewById(R.id.radio_me);
 
         //监听事件：为底部的RadioGroup绑定状态改变的监听事件
@@ -85,11 +93,17 @@ public class MainActivity extends BaseActivity {
                     case R.id.radio_home:
                         index = 0;
                         break;
-                    case R.id.radio_order:
+                    case R.id.radio_discover:
                         index = 1;
                         break;
-                    case R.id.radio_me:
+                    case R.id.radio_publish:
                         index = 2;
+                        break;
+                    case R.id.radio_info:
+                        index = 3;
+                        break;
+                    case R.id.radio_me:
+                        index = 4;
                         break;
                 }
                 //通过fragments这个adapter还有index来替换帧布局中的内容
@@ -123,16 +137,34 @@ public class MainActivity extends BaseActivity {
         @Override
         public Fragment getItem(int i) {
             Fragment fragment = null;
+            Bundle bundle = new Bundle();
             switch (i) {
                 case 0://首页
                     fragment = new HomeFagment();
                     break;
-                case 1://订单
+                case 1://发现
                     fragment = new OrderFagment();
+//                    Intent intent = new Intent(MainActivity.this, ImageActivity.class);
+//                    startActivity(intent);
+
+                    bundle.putInt("select",1);
+                    fragment.setArguments(bundle);
                     break;
-                case 2://我
-                    fragment = new MeFagment ();
+                case 2://发布
+                    //Toast.makeText(App.getInstance(), "发布页面建设中...", Toast.LENGTH_SHORT).show();
+                    fragment = new HomeFagment();
+                    bundle.putInt("select",2);
+                    fragment.setArguments(bundle);
                     break;
+                case 3://消息
+                    //Toast.makeText(App.getInstance(), "消息页面建设中...", Toast.LENGTH_SHORT).show();
+                    fragment = new HomeFagment();
+                    bundle.putInt("select",3);
+                    fragment.setArguments(bundle);
+                    break;
+                case 4://我
+                    fragment = new MeFagment();
+                  //  fragment = new YSHomeFagment();
                 default:
                     new HomeFagment();
                     break;
